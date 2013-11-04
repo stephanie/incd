@@ -1,0 +1,13 @@
+= form_for :user, url: register_url, html: { role: "form", id: "userform" } do |f|
+  legend Please sign up here
+  = f.text_field :firstname, placeholder: "First name"
+  = f.text_field :lastname, placeholder: "Last name"
+  = f.text_field :email, placeholder: "youremail@address.com"
+  = f.password_field :password, class: "showable-password", placeholder: "Password"
+  = f.password_field :password_confirmation, class: "showable-password", placeholder: "Retype password"
+  = f.submit "Sign Up"
+  button#show-password-button data-state="show" Show Passwords
+
+button Sign in as a guest
+
+== render partial: 'layouts/password'

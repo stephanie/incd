@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>inc'd - incubate your ideas</title>
+  <%= stylesheet_link_tag    "application", media: "all"%>
+  <%= javascript_include_tag "application" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Della+Respira' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+  <div id="footer">
+    <div id="madeby">
+      &copy; Stephanie Siaw 
+      <a href="https://github.com/stephs829" id="githublink">
+        [stephs829]
+      </a>
+    </div>
+    <div id="computer">
+      <a href="/">
+        <%= image_tag("laptop.png", :alt => "laptop", class: "laptopimg") %>
+      </a>
+    </div>
+    <div id="signout-signin">
+      <a href="/signout" id="signout">Sign out</a>
+      <a href="/signin" id="signin">Sign in</a>
+    </div>
+  </div>
+
+  <div id="loginmodal" style="display:none;">
+    <%= render partial: "layouts/form" %>
+  </div>
+
+</body>
+</html>
+

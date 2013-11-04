@@ -1,0 +1,6 @@
+  = form_for :user, url: signin_url, html: { role: "form", id: "loginform" } do |f|
+    legend Please sign in
+    = f.text_field :email, placeholder: "Email address"
+    = f.password_field :password, class: "form-control showable-password", placeholder: "Password"
+    => f.submit "Sign in", id: 'submit-button'
+      button#show-password-button data-state="show" Show Password
