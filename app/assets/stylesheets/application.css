@@ -20,7 +20,7 @@ html, body {
   height: 100%;
   width: 100%;
 }
-#wrapper {
+#mywrapper {
   min-height: 100%;
   height: auto;
 /*  background-color: rgb(255,250,240);
