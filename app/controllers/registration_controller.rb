@@ -11,7 +11,7 @@ class RegistrationController < ApplicationController
     session[:user_id] = @user.id
     # UserMailer.signedup_email(@user, request).deliver
     flash.now[:notice] = "Thank you for signing up!"
-    redirect_to root_url
+    redirect_to ideas_url
     else
     flash.now[:error] = "Something went wrong. Please try again."
     render :new
@@ -22,8 +22,8 @@ class RegistrationController < ApplicationController
   
   def user_params
     params.require(:user).permit(
-      :firstname,
-      :lastname,
+      :first_name,
+      :last_name,
       :email,
       :password,
       :password_confirmation

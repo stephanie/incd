@@ -1,0 +1,15 @@
+<div id="madeby">
+      &copy; Stephanie Siaw 
+      <a href="https://github.com/stephs829" id="githublink">
+        [stephs829]
+      </a>
+    </div>
+    <div id="computer">
+      <a href="/">
+        <%= image_tag("laptop.png", :alt => "laptop", class: "laptopimg") %>
+      </a>
+    </div>
+    <div id="signout-signin">
+      <%= link_to "#{current_user.first_name}", ideas_url, id: "username" %>
+      <%= link_to "Sign out", signout_url, method: :delete, id:"signout" %>
+    </div>

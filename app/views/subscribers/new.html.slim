@@ -1,6 +1,6 @@
 #wrapper
   div class="row"
-    div class="span5 offset3" 
+    div class="span4 offset3" 
       #left
         .name
           | inc'd
@@ -14,7 +14,7 @@
               = f.text_field :email, class: "emailinput", placeholder: "Email me when inc'd is ready for mobile!"
             #submitwrapper
               = f.submit "Send", class: "mybutton"
-  div class="row "
+  div class="row"
     div class="span4 offset8" 
       #right
         = image_tag("iphone.png", :alt => "iphone", class: "iphoneimg")

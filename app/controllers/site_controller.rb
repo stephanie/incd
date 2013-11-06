@@ -1,6 +1,10 @@
 class SiteController < ApplicationController
   before_action :is_authenticated?, only: [ :index ]
 
+  def index
+    # @disable_nav = true
+  end
+
   def new
     redirect_to root_url if current_user
   end
@@ -32,6 +36,6 @@ class SiteController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    redirect_to signout_url, notice: "You've logged out."
+    redirect_to root_url, notice: "You've logged out."
   end
 end

@@ -1,7 +1,6 @@
 Incd::Application.routes.draw do
   
-  resources :subscribers
-  resources :users
+  resources :ideas
 
   root 'site#index'
 

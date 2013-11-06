@@ -7,12 +7,15 @@ class User
   has_many :ideas
 
   field :id, type: String
-  field :firstname, type: String
-  field :lastname, type: String
+  field :first_name, type: String
+  field :last_name, type: String
   field :email, type: String
 
   field :salt, type: String
   field :fish, type: String
+
+  accepts_nested_attributes_for :ideas
+
 
   before_save :encrypt_password
 

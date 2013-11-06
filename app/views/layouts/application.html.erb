@@ -14,28 +14,6 @@
 
 <%= yield %>
 
-  <div id="footer">
-    <div id="madeby">
-      &copy; Stephanie Siaw 
-      <a href="https://github.com/stephs829" id="githublink">
-        [stephs829]
-      </a>
-    </div>
-    <div id="computer">
-      <a href="/">
-        <%= image_tag("laptop.png", :alt => "laptop", class: "laptopimg") %>
-      </a>
-    </div>
-    <div id="signout-signin">
-      <a href="/signout" id="signout">Sign out</a>
-      <a href="/signin" id="signin">Sign in</a>
-    </div>
-  </div>
-
-  <div id="loginmodal" style="display:none;">
-    <%= render partial: "layouts/form" %>
-  </div>
-
 </body>
 </html>
 

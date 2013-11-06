@@ -23,16 +23,24 @@ html, body {
 #wrapper {
   min-height: 100%;
   height: auto;
-  background-color: rgb(255,117,0);
+/*  background-color: rgb(255,250,240);
+*/  background-image: url('graph_paper.jpg'); 
+  background-size: cover;
   margin: 0 auto -6.2em;
 }
 #footer {
   height: 6.2em;
 }
 #left {
-/*  border: 1px solid black;
+/*   border: 1px solid black;
 */  color: rgb(36,36,36);
-  margin-top: 182px;
+  margin-top: 179px;
+  float: left;
+}
+#middle{
+  margin-top: 179px;
+/*  border: 1px solid black;
+*/
 }
 #messagebox {
   width: 420px;
@@ -78,11 +86,11 @@ html, body {
 }
 .mybutton {
   color: white;
-  background: #252525;
+  background: rgb(36,36,36);
   display: inline-block;
   padding: 10px 15px;
   margin-bottom: 0;
-  border: 2px solid #252525;
+  border: 2px solid rgb(36,36,36);
   font-size: 1em;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
@@ -102,8 +110,8 @@ html, body {
 .mybutton:hover,
 .mybutton:focus {
   background: none;
-  border: 2px solid #252525;
-  color: #252525;
+  border: 2px solid rgb(36,36,36);
+  color: rgb(36,36,36);
   font-weight: 500;
 }
 .mybutton:active {
@@ -112,15 +120,16 @@ html, body {
 }
 .iphoneimg {
   width: 315px;
+  margin: 0 auto;
+  padding-right: 2px;
 }
 .biglaptopimg {
   height: 315px;
 }
 #right {
 /*  border: 1px solid black;
-*/margin-top: -431px;
-  padding-left: 20px;
-
+*/  margin-top: -431px;
+  float: right;
 }
 #footer {
   clear: both;
@@ -142,14 +151,14 @@ html, body {
 }
 #tryitlink, #learnmorelink {
   text-decoration: none;
-  color: #252525;
+  color: rgb(36,36,36);
   font-size: 1.1em;
   font-weight: 500;
 }
 .bigbutton1, .bigbutton2 {
   padding: 18px 23px;
   background: none;
-  border: 2px solid #252525;
+  border: 2px solid rgb(36,36,36);
 }
 
 .bigbutton2 {
@@ -193,8 +202,12 @@ span {
   right: 0px;
   position: fixed;
 }
-#signout {
+#signout, #username {
   text-decoration: none;
+  color: rgb(159, 159, 159);
+}
+#username {
+  padding-right: 20px;
   color: white;
 }
 #signin {
@@ -202,7 +215,7 @@ span {
   margin-left: 30px;
   margin-right: -12px;
   color: white;
-  background: #252525;
+  background: rgb(36,36,36);
   padding: 10px 15px;
   border: 1px solid white;
   line-height: 1.428571429;
@@ -224,7 +237,7 @@ span {
 #signin:focus {
   background: white;
   border: 1px solid white;
-  color: #252525;
+  color: rgb(36,36,36);
   font-weight: 500;
 }
 #githublink {
@@ -265,14 +278,89 @@ span {
   margin-bottom: 40px;
 }
 #homebackground {
-/*  background-image: url('notebook.jpg');
-  background-size: cover;*/
+  background-image: url('graph_paper.jpg'); 
+  background-size: cover;
+  background: rgb (255,57,32);
   height: 100%
 }
 #bigbuttonbox {
   text-align: center;
 }
-/*!
+
+/* ADDING A LEFT SIDEBAR */
+#left-sidebar {
+  background: #eee;
+  float: left;
+  margin-left: -50px;
+  padding-left: 50px;
+  position: fixed;
+  width: 300px;
+  overflow-y: auto;
+  height: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+}
+
+#right-content-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  float: right;
+  background: white;
+}
+html {
+  overflow: hidden;
+}
+#sidebar-profile {
+  position: relative;
+  width: 300px;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-links {
+  position: relative;
+  clear: both;
+  width: 300px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-links li {
+  line-height: 40px;
+  text-indent: 20px;
+  border-bottom: 1px dotted black;
+}
+.sidebar-links li a {
+  color: black;
+  display: block;
+  text-decoration: none;
+}
+.sidebar-links li a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  text-decoration: none;
+}
+
+.sidebar-links li a:active,
+.sidebar-links li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-links > .sidebar-link {
+  height: 65px;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.sidebar-links > .sidebar-link a {
+  color: #999999;
+}
+
+.sidebar-links > .sidebar-link a:hover {
+  color: #fff;
+  background: none;
+}
+/*/*!
  * Bootstrap Responsive v2.3.2
  *
  * Copyright 2013 Twitter, Inc
@@ -280,8 +368,8 @@ span {
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world by @mdo and @fat.
- */
-
+ 
+*/
 .clearfix {
   *zoom: 1;
 }
