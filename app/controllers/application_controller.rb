@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_authenticated?
-    # redirect_to root_url unless current_user
+    redirect_to signin_url unless current_user
   end
-  
+
+  def current_user_ideas
+    @current_user_ideas = Idea.find(:all, :conditions => {:user_id => session[:user_id]})
+  end
+
 end

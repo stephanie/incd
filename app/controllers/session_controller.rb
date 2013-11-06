@@ -11,6 +11,7 @@ class SessionController < ApplicationController
 
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
+      flash[:first_time_login] = true
       redirect_to ideas_url
     else
       flash.now[:error] = "Unable to sign you in. Please try again."

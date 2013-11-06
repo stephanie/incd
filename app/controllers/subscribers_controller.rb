@@ -2,7 +2,6 @@ class  SubscribersController < ApplicationController
 
   def new
     @subscriber = Subscriber.new
-    # @disable_nav = true
   end
 
   def create

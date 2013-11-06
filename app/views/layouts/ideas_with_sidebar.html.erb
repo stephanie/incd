@@ -3,7 +3,7 @@
 <head>
   <title>inc'd - incubate your ideas</title>
   <%= stylesheet_link_tag    "application", media: "all"%>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application"%>
   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Della+Respira' rel='stylesheet' type='text/css'>
@@ -12,7 +12,14 @@
 </head>
 <body>
 
+<div id="wrapper">
+    <% if current_user %>
+        <%= render partial: 'layouts/sidenavbar' unless @disable_nav %>
+    <% end %>
+
   <%= yield %>
+
+</div>
 
 </body>
 </html>

@@ -2,7 +2,7 @@ class SiteController < ApplicationController
   before_action :is_authenticated?, only: [ :index ]
 
   def index
-    # @disable_nav = true
+    @disable_nav = true
   end
 
   def new
