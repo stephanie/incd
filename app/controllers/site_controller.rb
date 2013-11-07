@@ -1,8 +1,7 @@
 class SiteController < ApplicationController
-  before_action :is_authenticated?, only: [ :index ]
+  skip_before_action :is_authenticated?
 
   def index
-    @disable_nav = true
   end
 
   def new
@@ -33,9 +32,5 @@ class SiteController < ApplicationController
       end
     end
   end
-  
-  def destroy
-    session[:user_id] = nil
-    redirect_to root_url, notice: "You've logged out."
-  end
+
 end

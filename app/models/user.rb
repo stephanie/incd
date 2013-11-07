@@ -5,6 +5,7 @@ class User
   attr_accessor :password, :password_confirmation
 
   has_many :ideas
+  embeds_one :name
 
   field :id, type: String
   field :first_name, type: String
@@ -13,8 +14,6 @@ class User
 
   field :salt, type: String
   field :fish, type: String
-
-  accepts_nested_attributes_for :ideas
 
 
   before_save :encrypt_password

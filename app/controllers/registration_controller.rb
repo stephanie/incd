@@ -1,5 +1,6 @@
 class RegistrationController < ApplicationController
-  
+  skip_before_action :is_authenticated?
+
   def new
     @user = User.new
   end

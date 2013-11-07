@@ -2,19 +2,11 @@
   <div id="page-content-wrapper">
     <div class="content-header">
       <h1>
-        <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
         All ideas
       </h1>
     </div>
-
+    <% @current_user_ideas.each do |current_user_idea| %>
+    <li><%= link_to current_user_idea.name, current_user_idea %></li>
+    <% end %>
   </div>
   
-
-<% content_for :javascript do %>
-  <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("active");
-    });
-  </script>
-<% end %>

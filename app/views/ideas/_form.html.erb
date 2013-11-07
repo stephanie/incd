@@ -1,0 +1,11 @@
+<%= form_for (@idea) do |f| %>
+  <%= f.text_field :name %>
+
+  <%= f.fields_for :description, @idea.description do |description_form| %>
+  <%= description_form.text_field :name %>
+
+  <% end %>
+
+  <%= f.submit %>
+
+  <% end %>

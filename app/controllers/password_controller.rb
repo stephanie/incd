@@ -1,5 +1,6 @@
 class PasswordController < ApplicationController
-  
+  skip_before_action :is_authenticated?, only: [:edit]
+
   def edit
     @user = User.find_by(code: params[:code])
     puts

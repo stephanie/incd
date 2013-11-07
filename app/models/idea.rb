@@ -11,8 +11,8 @@ class Idea
 
   has_many :tags
   belongs_to :user
+  accepts_nested_attributes_for :description, :problem, :solution, :market, :competition, :demand, :allow_destroy => true
 
-  accepts_nested_attributes_for :description, :problem, :solution, :market, :competition
 
   field :id, type: String
   field :name, type: String, default: "untitled idea"

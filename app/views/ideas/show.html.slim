@@ -1,1 +1,29 @@
-= @idea.name
+#page-content-wrapper
+  .content-header
+    h1 = @idea.name
+  div class="page-content inset"
+    .row
+      .col-md-12
+        p.lead = @description.content 
+    .row
+      .col-md-6
+        .category-box.problem
+          p PROBLEM
+          = @problem.content if @problem
+      .col-md-6
+        .category-box.solution
+          p SOLUTION
+          = @solution.content if @solution
+    .row
+      .col-md-4
+        .category-box.market
+          p MARKET
+          = @market.content if @market
+      .col-md-4
+        .category-box.competition
+          p COMPETITION
+          = @competition.content if @competition
+      .col-md-4
+        .category-box.demand
+          p DEMAND
+          = @demand.content if @demand

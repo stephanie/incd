@@ -1,6 +1,13 @@
 Incd::Application.routes.draw do
   
-  resources :ideas
+  resources :ideas do 
+    resources :description
+    # resources :problem
+    # resources :solution
+    # resources :market
+    # resources :competition
+    # resources :demand
+  end
 
   root 'site#index'
 

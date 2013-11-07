@@ -1,4 +1,5 @@
 class  SubscribersController < ApplicationController
+  skip_before_action :is_authenticated?
 
   def new
     @subscriber = Subscriber.new
