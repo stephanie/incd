@@ -1,14 +1,7 @@
 Incd::Application.routes.draw do
   
-  resources :ideas do 
-    resources :description
-    # resources :problem
-    # resources :solution
-    # resources :market
-    # resources :competition
-    # resources :demand
-  end
-
+  resources :ideas 
+  
   root 'site#index'
 
   get 'subscribe' => 'subscribers#new', as: :subscribe

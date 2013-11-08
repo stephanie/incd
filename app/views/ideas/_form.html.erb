@@ -1,9 +1,28 @@
 <%= form_for (@idea) do |f| %>
   <%= f.text_field :name %>
 
-  <%= f.fields_for :description, @idea.description do |description_form| %>
-  <%= description_form.text_field :name %>
+  <%= f.fields_for :description, @idea.description do |f| %>
+  <%= f.text_area :content %>
+  <% end %>
 
+  <%= f.fields_for :problem, @idea.description do |f| %>
+  <%= f.text_area :content %>
+  <% end %>
+
+  <%= f.fields_for :solution, @idea.description do |f| %>
+  <%= f.text_area :content %>
+  <% end %>
+
+  <%= f.fields_for :market, @idea.description do |f| %>
+  <%= f.text_area :content %>
+  <% end %>
+
+  <%= f.fields_for :competition, @idea.description do |f| %>
+  <%= f.text_area :content %>
+  <% end %>
+
+  <%= f.fields_for :demand, @idea.description do |f| %>
+  <%= f.text_area :content %>
   <% end %>
 
   <%= f.submit %>

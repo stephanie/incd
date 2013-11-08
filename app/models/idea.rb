@@ -13,8 +13,6 @@ class Idea
   belongs_to :user
   accepts_nested_attributes_for :description, :problem, :solution, :market, :competition, :demand, :allow_destroy => true
 
-
-  field :id, type: String
   field :name, type: String, default: "untitled idea"
 
 end

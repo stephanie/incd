@@ -19,6 +19,7 @@
 html, body {
   height: 100%;
   width: 100%;
+  overflow: auto;
 }
 #mywrapper {
   min-height: 100%;
@@ -387,4 +388,35 @@ html {
 .demand {
   margin: 0 0 10px -10px;
   background-color: rgba(255,177,13,0.6);
+}
+.edit-popup-box {
+  border: 1px solid rgb(210,210,210);
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: white;
+  bottom: 0;
+  right: 10px;
+}
+.popup-header {
+  top: 0;
+  left: 0;
+  height: 45px;
+  width: 100%;
+  background-color: rgb(36,36,36);
+  color: white;
+  padding: 8px;
+  font-family: 'Poiret One';
+  font-size: 22px
+}
+.popup-title {
+  float: left;
+}
+.popup-x {
+  float: right;
+  font-family: sans-serif;
+  font-size: 18px;
+  vertical-align: center;
+  margin-right: 5px;
+  color: gray;
 }

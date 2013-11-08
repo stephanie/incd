@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   layout "ideas_with_sidebar"
 
+  before_action :current_user
   before_action :is_authenticated?
   before_action :set_ideas_for_sidebar
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
@@ -12,23 +13,22 @@ class IdeasController < ApplicationController
   # GET new_idea_url
   def new
     @idea = Idea.new
-    # @problem = @idea.problem.build
-    # @solution = @idea.solution.build
-    # @market = @idea.market.build
-    # @competition = @idea.competition.build
-    # @problem = @idea.problem.build
+    @idea.build_description
+    @idea.build_problem
+    @idea.build_solution
+    @idea.build_market
+    @idea.build_competition
+    @idea.build_demand
   end
 
   # POST ideas_url
   def create
     @idea = Idea.create(idea_params)
-    # @problem = Problem.create(params.permit(:username))
-    # @solution = Solution.create(params.permit(:username))
-    # @market = Market.create(params.permit(:username))
-    # @competition = Competition.create(params.permit(:username))
-    # @demand = Demand.create(params.permit(:username))
+    @idea.user = @current_user
 
-    redirect_to idea_path(idea)
+    if @idea.save
+      redirect_to idea_path(@idea)
+    end
 
   end
 
@@ -51,11 +51,37 @@ class IdeasController < ApplicationController
 
   # PUT idea_url(:id => 1)
   def update
+
+    if params[:category_type] == 'description'
+      @idea.build_description(content: params[:content])
+    elsif params[:category_type] == 'problem'
+      @idea.build_problem(content: params[:content])
+    elsif params[:category_type] == 'solution'
+      @idea.build_solution(content: params[:content])
+    elsif params[:category_type] == 'market'
+      @idea.build_market(content: params[:content])
+    elsif params[:category_type] == 'competition'
+      @idea.build_competition(content: params[:content])
+    elsif params[:category_type] == 'demand'
+      @idea.build_demand(content: params[:content])
+
+    @idea.save
+
+    if params.include?(:category_type)
+
+    params[:content]
+    params[:category_type]
+
+    @idea = current_user.idea.find(params[:id])
+
     if @idea.update(idea_params)
       redirect_to @idea, notice: 'Idea is updated.'
-    else
-      render action: 'edit'
     end
+
+    render json: {
+      content: 
+    }
+
   end
 
   # DELETE idea_url(:id => 1)
@@ -74,8 +100,8 @@ private
 
   def idea_params
     params.require(:idea).permit(
-      :name
-      )
+      :name, :description_attributes => [:id, :content], :problem_attributes => [:id, :content], :solution_attributes => [:id, :content], :market_attributes => [:id, :content], :competition_attributes => [:id, :content], :demand_attributes => [:id, :content]
+    )
   end
 
   def set_ideas_for_sidebar

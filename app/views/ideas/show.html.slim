@@ -7,23 +7,66 @@
         p.lead = @description.content 
     .row
       .col-md-6
-        .category-box.problem
+        .category-box.problem(data-category-name="problem")
           p PROBLEM
           = @problem.content if @problem
       .col-md-6
-        .category-box.solution
+        .category-box.solution(data-category-name="solution")
           p SOLUTION
           = @solution.content if @solution
     .row
       .col-md-4
-        .category-box.market
+        .category-box.market(data-category-name="market")
           p MARKET
           = @market.content if @market
       .col-md-4
-        .category-box.competition
+        .category-box.competition(data-category-name="competition")
           p COMPETITION
           = @competition.content if @competition
       .col-md-4
-        .category-box.demand
+        .category-box.demand(data-category-name="demand")
           p DEMAND
           = @demand.content if @demand
+
+  .edit-popup-box
+    .popup-header
+      .popup-title 
+        p PROBLEM
+      .popup-x
+        p X
+    == render 'category_form'
+
+javascript:
+  $(function() {
+
+    $('.edit-popup-box').hide();
+
+    $('.category-box').click(function() {
+      $('.edit-popup-box').show();
+    });
+    $('.popup-header').click(function() {
+      $('.edit-popup-box').hide();
+    });
+
+    $('.category-box').on('click', function(e) {
+
+      console.log('category box clicked')
+      // .problem
+      $('#category-selected').attr('value', $(this).attr('data-category-name'))
+      $('.edit-popup-box').show();
+      $('.popup-title').html($(this).attr('data-category-name'));
+
+    });
+
+    $("#category-corner-submit").on('click', function() {
+      $('#category-selected').attr('value');
+      $('#category-content').attr('value');
+
+      $.ajax(
+        {}
+      )
+    })
+
+    $('#category-content').wysihtml5();
+
+  });
