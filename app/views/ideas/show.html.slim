@@ -28,37 +28,69 @@
           .category-heading.demand DEMAND
           .category-existing-content = @demand.content if @demand
 
-  #edit-popup-box
-    == render 'category_form'
+    #modal-container
+    #modal
+      #popup-header
+        a href="#" class="close" X
+      .popup-content
+        == render 'category_form'
 
 javascript:
   $(function() {
 
+    var $modal = $('#modal'),
+        $modal_close = $modal.find('.close'),
+        $modal_container = $('#modal-container');
+
     $('.category-box').click(function() {
-    $('#edit-popup-box').toggleClass('focused');
+      $modal
+       .prepend($modal_close)
+       .css('top', $(window).scrollTop() + 40)
+       .show();
+      $modal_container.show();
+
+      $('#category-selected').attr('value', $(this).attr('data-category-name'));
+      $('textarea').text($(this).children().eq(1).html());
+      $('#popup-header').html($(this).attr('data-category-name'));
+      $('#popup-header').addClass($(this).attr('data-category-name'));
+
+      $('textarea').focus();
+      tmpStr = $('textarea').val();
+      $('textarea').val('');
+      $('textarea').val(tmpStr);
     });
+
+     $('.close', '#modal').on('click', function(){
+        $('.popup-header').removeClass();
+        $('textarea').text();
+        $('#category-selected').attr('value');
+        $('#category-content').attr('value');
+        $modal_container.hide();
+        $modal.hide();
+        return false;
+     });
+
     $('#category-box-submit').click(function() {
-      $('#edit-popup-box').toggleClass('focused');
-    });
-
-    $('.category-box').on('click', function(e) {
-
-      console.log('category box clicked')
-      // .problem
-      $('#category-selected').attr('value', $(this).attr('data-category-name'))
-      $('.edit-popup-box').show();
-      $('textarea#category-content').text($(this).children().eq(1).html())
-      $('.popup-title').html($(this).attr('data-category-name'));
-
-    });
-
-    $("#category-corner-submit").on('click', function() {
+      $('.popup-header').removeClass();
+      $('textarea').text();
       $('#category-selected').attr('value');
       $('#category-content').attr('value');
+    });
 
-      $.ajax(
-        {}
-      )
-    })
+    $.fn.selectRange = function(start, end) {
+      if(!end) end = start; 
+      return this.each(function() {
+        if (this.setSelectionRange) {
+            this.focus();
+            this.setSelectionRange(start, end);
+        } else if (this.createTextRange) {
+            var range = this.createTextRange();
+            range.collapse(true);
+            range.moveEnd('character', end);
+            range.moveStart('character', start);
+            range.select();
+        }
+      });
+    };
 
   });
