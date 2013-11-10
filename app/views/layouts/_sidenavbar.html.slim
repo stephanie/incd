@@ -1,0 +1,26 @@
+<!-- Sidebar -->
+#sidebar-wrapper
+  ul.sidebar-nav
+    li.sidebar-user-name(data-active-link="true")
+      == link_to "#{current_user.first_name}", ideas_path
+    - @current_user_ideas.each do |current_user_idea|
+      li.sidebar-idea-list(data-active-link="true") 
+        == link_to current_user_idea.name, current_user_idea
+    li(data-active-link="true") 
+      == link_to 'Add idea', new_idea_path 
+    li.sidebar-signout-link(data-active-link="true") 
+      == link_to "Sign out", signout_url, method: 'delete'
+
+javascript:
+  $(document).ready(function() {
+
+    $('#menu-toggle').on('click', function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+
+    $('.sidebar-nav a').each(function(index) {
+      if (this.href.trim() == window.location)
+        $(this).addClass('selected');
+    });
+  });

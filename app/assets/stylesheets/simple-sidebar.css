@@ -7,9 +7,9 @@
   margin-left: -250px;
   left: 250px;
   width: 250px;
-  background-color: #323232;
-  -webkit-box-shadow: inset -2px 0 8px -1px #111;
-  box-shadow: inset -2px 0 8px -1px #111;
+  background-color: white;
+ /* -webkit-box-shadow: inset -2px 0 10px -1px rgb(234,234,234);
+  box-shadow: inset -2px 10px -1px rgb(234,234,234);*/
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -18,7 +18,16 @@
 }
 
 #page-content-wrapper {
-  width: 100%;
+  background: rgb(221,221,221);
+  min-height: 100%;
+  bottom: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 250px;
+  padding-right: 14px;
+  padding-left: 5px;
 }
 
 .sidebar-nav {
@@ -36,17 +45,19 @@
 }
 
 .sidebar-nav li a {
-  color: #999999;
+  color: rgb(62,62,62);
   display: block;
   text-decoration: none;
 }
 
 .sidebar-nav li a:hover {
   color: #fff;
-  background: rgba(255,255,255,0.2);
+  background: rgb(205,205,205);
+  -webkit-box-shadow: inset  2px 3px 8px 2px rgb(198,198,198);
+   box-shadow: inset 2px 3px 8px 2px rgb(198,198,198);
   text-decoration: none;
+  font-weight: 400;
 }
-
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
   text-decoration: none;
@@ -101,7 +112,9 @@
   position: relative;
   left: 250px;
 }
-
+#page-content-wrapper {
+  left: 0;
+}
 #wrapper.active #sidebar-wrapper {
   left: 250px;
   width: 250px;

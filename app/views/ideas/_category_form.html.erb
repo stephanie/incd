@@ -1,4 +1,4 @@
-<fou.rm>
+<form>
   <input id="category-selected" type="hidden" value="" />
   <textarea id="category-content" rows="20" cols="79"></textarea>
   <button name="submit" type="submit" value="Save" id="category-box-submit"></button>
@@ -10,16 +10,17 @@ $('#category-box-submit').on('click', function() {
         console.log("on click", $(this));
         var uploadData = {
           content: $('#category-content').val(),
-          category_type: $('#category-selected').attr('value');
+          category_type: $('#category-selected').attr('value')
         };
 
         $.ajax({
           type: "PATCH",
-          url: "ideas/<%= @idea.id %>",
+          url: "/ideas/<%= @idea.id %>",
           data: uploadData
         })
-        .done(function( data ) {
-          $('.category-box.problem').text("problem: " + data.problem);
+        .done(function(data) {
+          console.log("data", data);
+          $('.category-existing-content').text(data.content);
         });
       });
 

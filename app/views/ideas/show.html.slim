@@ -1,51 +1,44 @@
 #page-content-wrapper
   .content-header
-    h1 = @idea.name
+    .idea-heading = @idea.name
   div class="page-content inset"
     .row
       .col-md-12
-        p.lead = @description.content 
+        .idea-description = @description.content 
     .row
       .col-md-6
-        .category-box.problem(data-category-name="problem")
-          p PROBLEM
-          = @problem.content if @problem
+        .category-box(data-category-name="problem")
+          .category-heading.problem PROBLEM
+          .category-existing-content = @problem.content if @problem
       .col-md-6
-        .category-box.solution(data-category-name="solution")
-          p SOLUTION
-          = @solution.content if @solution
+        .category-box(data-category-name="solution")
+          .category-heading.solution SOLUTION
+          .category-existing-content = @solution.content if @solution
     .row
       .col-md-4
-        .category-box.market(data-category-name="market")
-          p MARKET
-          = @market.content if @market
+        .category-box(data-category-name="market")
+          .category-heading.market MARKET
+          .category-existing-content = @market.content if @market
       .col-md-4
-        .category-box.competition(data-category-name="competition")
-          p COMPETITION
-          = @competition.content if @competition
+        .category-box(data-category-name="competition")
+          .category-heading.competition COMPETITION
+          .category-existing-content = @competition.content if @competition
       .col-md-4
-        .category-box.demand(data-category-name="demand")
-          p DEMAND
-          = @demand.content if @demand
+        .category-box(data-category-name="demand")
+          .category-heading.demand DEMAND
+          .category-existing-content = @demand.content if @demand
 
-  .edit-popup-box
-    .popup-header
-      .popup-title 
-        p PROBLEM
-      .popup-x
-        p X
+  #edit-popup-box
     == render 'category_form'
 
 javascript:
   $(function() {
 
-    $('.edit-popup-box').hide();
-
     $('.category-box').click(function() {
-      $('.edit-popup-box').show();
+    $('#edit-popup-box').toggleClass('focused');
     });
-    $('.popup-header').click(function() {
-      $('.edit-popup-box').hide();
+    $('#category-box-submit').click(function() {
+      $('#edit-popup-box').toggleClass('focused');
     });
 
     $('.category-box').on('click', function(e) {
@@ -54,6 +47,7 @@ javascript:
       // .problem
       $('#category-selected').attr('value', $(this).attr('data-category-name'))
       $('.edit-popup-box').show();
+      $('textarea#category-content').text($(this).children().eq(1).html())
       $('.popup-title').html($(this).attr('data-category-name'));
 
     });
@@ -66,7 +60,5 @@ javascript:
         {}
       )
     })
-
-    $('#category-content').wysihtml5();
 
   });

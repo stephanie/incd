@@ -6,6 +6,7 @@ class IdeasController < ApplicationController
   before_action :set_ideas_for_sidebar
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
+
 # GET ideas_url
   def index
   end
@@ -25,6 +26,12 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.create(idea_params)
     @idea.user = @current_user
+    @idea.build_description
+    @idea.build_problem
+    @idea.build_solution
+    @idea.build_market
+    @idea.build_competition
+    @idea.build_demand
 
     if @idea.save
       redirect_to idea_path(@idea)
@@ -64,22 +71,17 @@ class IdeasController < ApplicationController
       @idea.build_competition(content: params[:content])
     elsif params[:category_type] == 'demand'
       @idea.build_demand(content: params[:content])
-
+    end 
+    
     @idea.save
 
-    if params.include?(:category_type)
-
-    params[:content]
-    params[:category_type]
-
-    @idea = current_user.idea.find(params[:id])
-
-    if @idea.update(idea_params)
-      redirect_to @idea, notice: 'Idea is updated.'
-    end
-
     render json: {
-      content: 
+      content: @idea.description,
+      content: @idea.problem,
+      content: @idea.solution,
+      content: @idea.market,
+      content: @idea.competition,
+      content: @idea.demand
     }
 
   end
