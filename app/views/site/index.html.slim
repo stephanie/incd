@@ -7,5 +7,5 @@
         .slogan#centeredslogan
           | incubate your ideas
         #bigbuttonbox
-          button.mybutton.bigbutton1: a href="/register" id="tryitlink" Try it
+          == link_to "Try it!", users_path, method: :post, class: "button mybutton bigbutton1", id: "tryitlink"
           button.mybutton.bigbutton2: a href="/" id="learnmorelink" Learn more

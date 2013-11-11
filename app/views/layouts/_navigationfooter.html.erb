@@ -10,6 +10,12 @@
       </a>
     </div>
     <div id="signout-signin">
-      <%= link_to "#{current_user.first_name}", ideas_url, id: "username" %>
-      <%= link_to "Sign out", signout_url, method: :delete, id:"signout" %>
+      <% if current_user %>
+        <%= link_to "#{current_user.first_name}", ideas_url, id: "username" %>
+      <% end %>
+      <% if current_user %>
+        <%= link_to "Sign out", signout_url, method: :delete, id:"signout" %>
+      <% else %>
+        <%= link_to "Sign Up", register_url, id:"signup" %>
+      <% end %>
     </div>

@@ -1,7 +1,6 @@
 class IdeasController < ApplicationController
   layout "ideas_with_sidebar"
 
-  before_action :current_user
   before_action :is_authenticated?
   before_action :set_ideas_for_sidebar
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
@@ -9,6 +8,9 @@ class IdeasController < ApplicationController
 
 # GET ideas_url
   def index
+    if current_user
+      @ideas = current_user.ideas 
+    end
   end
 
   # GET new_idea_url

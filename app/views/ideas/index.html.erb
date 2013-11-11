@@ -5,8 +5,8 @@
         All ideas
       </h1>
     </div>
-    <% @current_user_ideas.each do |current_user_idea| %>
-    <li><%= link_to current_user_idea.name, current_user_idea %></li>
+    <% @ideas.each do |idea| %>
+      <li><%= link_to idea.name, idea %></li>
     <% end %>
   </div>
   

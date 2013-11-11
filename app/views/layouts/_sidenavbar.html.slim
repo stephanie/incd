@@ -1,15 +1,20 @@
 <!-- Sidebar -->
 #sidebar-wrapper
   ul.sidebar-nav
-    li.sidebar-user-name(data-active-link="true")
+    li.sidebar-user-name
       == link_to "#{current_user.first_name}", ideas_path
-    - @current_user_ideas.each do |current_user_idea|
-      li.sidebar-idea-list(data-active-link="true") 
-        == link_to current_user_idea.name, current_user_idea
-    li(data-active-link="true") 
-      == link_to 'Add idea', new_idea_path 
-    li.sidebar-signout-link(data-active-link="true") 
-      == link_to "Sign out", signout_url, method: 'delete'
+    - if current_user
+      - @current_user_ideas.each do |current_user_idea|
+        li.sidebar-idea-list
+          == link_to current_user_idea.name, current_user_idea
+    li
+      == link_to 'Add idea', new_idea_path
+    - if current_user.guest?
+      li
+        == link_to 'Register', register_path
+    - if current_user
+      li.sidebar-signout-link
+        == link_to "Sign out", signout_url, method: 'delete'
 
 javascript:
   $(document).ready(function() {

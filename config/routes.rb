@@ -1,6 +1,7 @@
 Incd::Application.routes.draw do
   
   resources :ideas 
+  resources :users, only: :create
   
   root 'site#index'
 
