@@ -5,26 +5,26 @@
   <%= f.text_area :content %>
   <% end %>
 
-  <%= f.fields_for :problem, @idea.description do |f| %>
+  <%= f.fields_for :problem, @idea.problem do |f| %>
   <%= f.text_area :content %>
   <% end %>
 
-  <%= f.fields_for :solution, @idea.description do |f| %>
+  <%= f.fields_for :solution, @idea.solution do |f| %>
   <%= f.text_area :content %>
   <% end %>
 
-  <%= f.fields_for :market, @idea.description do |f| %>
+  <%= f.fields_for :market, @idea.market do |f| %>
   <%= f.text_area :content %>
   <% end %>
 
-  <%= f.fields_for :competition, @idea.description do |f| %>
+  <%= f.fields_for :competition, @idea.competition do |f| %>
   <%= f.text_area :content %>
   <% end %>
 
-  <%= f.fields_for :demand, @idea.description do |f| %>
+  <%= f.fields_for :demand, @idea.demand do |f| %>
   <%= f.text_area :content %>
   <% end %>
 
-  <%= f.submit %>
+<%= f.submit %>
 
   <% end %>

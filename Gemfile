@@ -10,7 +10,6 @@ gem 'bcrypt-ruby', require: 'bcrypt'
 
 gem 'bson_ext'
 gem 'mongoid', github: 'mongoid/mongoid', ref: 'f91feef'
-gem "bootstrap-wysihtml5-rails", "~> 0.3.1.23"
 
 group :development, :test do
      gem 'better_errors'

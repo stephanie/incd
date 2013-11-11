@@ -44,8 +44,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-wysihtml5-rails (0.3.1.23)
-      railties (>= 3.0)
     bson (1.9.2)
     bson_ext (1.9.2)
       bson (~> 1.9.2)
@@ -122,7 +120,6 @@ DEPENDENCIES
   bcrypt-ruby
   better_errors
   binding_of_caller
-  bootstrap-wysihtml5-rails (~> 0.3.1.23)
   bson_ext
   jquery-rails
   jquery-ui-rails

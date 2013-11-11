@@ -7,21 +7,21 @@ class SessionController < ApplicationController
   end
   
   def create
-    # attempt to authenticate
-    @user = User.find_by(email: params[:user][:email])
+     username = params[:user][:username]
+     password = params[:user][:password]
 
-    if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
-      redirect_to ideas_url
-    else
-      flash.now[:error] = "Unable to sign you in. Please try again."
-      render :new
-    end
+     if user = User.authenticate(username, password)
+       session[:user_id] = user.id
+       
+       redirect_to ideas_url
+     else
+       flash.now[:error] = "Unable to sign you in. Please try again."
+       render :new
+     end
   end
   
   def destroy
     session[:user_id] = nil
-    
     redirect_to root_url, notice: "You've logged out."
   end
 

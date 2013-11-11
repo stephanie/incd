@@ -1,12 +1,38 @@
 <!-- Page content -->
   <div id="page-content-wrapper">
     <div class="content-header">
-      <h1>
+      <div class="idea-heading">
         All ideas
-      </h1>
+      </div>
     </div>
     <% @ideas.each do |idea| %>
-      <li><%= link_to idea.name, idea %></li>
+    <div class="ideas-index-box">
+      <li><%= link_to idea.name, idea, class: "ideas-index-link" %></li>
+      <div class="ideas-index-section ideas-index-problem">
+      </div>
+      <div class="ideas-index-section ideas-index-solution">
+      </div>
+      <div class="ideas-index-section ideas-index-market">
+      </div>
+      <div class="ideas-index-section ideas-index-competition">
+      </div>
+      <div class="ideas-index-section ideas-index-demand">
+      </div>
+    </div>
     <% end %>
   </div>
-  
+
+<script>
+
+/* Get content information from database about each idea shown - NOT WORKING YET */
+  $.ajax({
+    type: 'GET',
+    url: "/ideas/<%= @idea_id %>",
+    done: function(data) {
+      console.log(idea.problem);
+      console.log(idea.solution);
+    },
+    dataType: 'json'
+  });
+
+</script>

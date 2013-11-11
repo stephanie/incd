@@ -4,11 +4,72 @@
   = f.text_field :last_name, placeholder: "Last name"
   = f.text_field :username, placeholder: "Username"
   = f.text_field :email, placeholder: "youremail@address.com"
-  = f.password_field :password, class: "showable-password", placeholder: "Password"
-  = f.password_field :password_confirmation, class: "showable-password", placeholder: "Retype password"
+  = f.password_field :password, id: "user_password", placeholder: "Password"
+  = f.password_field :password_confirmation, id: "user_password_confirmation", placeholder: "Retype password"
   = f.submit "Sign Up"
   button#show-password-button data-state="show" Show Passwords
+  #pw-meter.strength-meter.progress.progress-striped
+    #strength-meter.meter.progress-bar.w-0 role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"
+  #password-strength
 
 button Sign in as a guest
 
 == render partial: 'layouts/password'
+
+script src="/js/zxcvbn-async.js"
+
+javascript:
+  $(function() {
+
+    var setStrengthMeter = function(pw) {
+      var result = zxcvbn(pw);
+      var score = result.score;
+      var strength = (score / 4) * 100;
+      var color;
+      switch (score) {
+        case 0:
+          $('#password-strength').html("Very weak!").addClass('weak-password');
+          break;
+        case 1:
+          color = 'danger';
+          $('#password-strength').html("Weak!").addClass('weak-password');
+          break;
+        case 2:
+          color = 'warning';
+          $('#password-strength').html("So-so").addClass('so-so-password');
+          break;
+        case 3:
+          color = 'success';
+          $('#password-strength').html("Good").addClass('good-password');
+          break;
+        case 4:
+          color = 'success';
+          $('#password-strength').html("Excellent").addClass('excellent-password');
+          break;
+        default:
+          color = 'info';
+
+      console.log('result: ' + result);
+      console.log('score: ' + score);
+      console.log('strength: ' + strength);
+      console.log('color: ' + color);
+      }
+      
+      $('#strength-meter')
+        .removeClass('progress-bar-danger')
+        .removeClass('progress-bar-warning')
+        .removeClass('progress-bar-success')
+        .removeClass('progress-bar-info')
+        .addClass('progress-bar-' + color)
+        .css('width', strength + '%');
+    };
+    
+  
+    $('#user_password').on('keyup', function(event) {
+      var pw = $(this).val();
+      try {
+        setStrengthMeter(pw);
+      } catch (e) {}
+      console.log('pw: ' + pw)
+    });
+  });

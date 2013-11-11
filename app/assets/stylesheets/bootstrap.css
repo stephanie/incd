@@ -5567,8 +5567,7 @@ a.list-group-item:focus {
   font-family: 'Raleway', sans-serif;
   line-height: 1;
   color: #000000;
-  opacity: 0.2;
-  filter: alpha(opacity=20);
+  opacity: 0.4;
 }
 
 .close:hover,
@@ -5576,8 +5575,7 @@ a.list-group-item:focus {
   color: #000000;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.7;
 }
 
 button.close {

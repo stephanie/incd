@@ -4,12 +4,14 @@
   div class="page-content inset"
     .row
       .col-md-12
-        .idea-description = @description.content 
+        .category-box(data-category-name="description")
+          .category-heading.description DESCRIPTION
+          .category-existing-content#problem-content = @description.content if @description
     .row
       .col-md-6
         .category-box(data-category-name="problem")
           .category-heading.problem PROBLEM
-          .category-existing-content = @problem.content if @problem
+          .category-existing-content#problem-content = @problem.content if @problem
       .col-md-6
         .category-box(data-category-name="solution")
           .category-heading.solution SOLUTION
