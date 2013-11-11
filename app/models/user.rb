@@ -20,9 +20,9 @@ class User
   before_save :encrypt_password
 
   validates :email, presence: true
-  validates :email, uniqueness: { case_sensitive: false }, allow_blank: true
+  validates :email, uniqueness: { case_sensitive: false }
   validates :username, presence: true
-  validates :username, uniqueness: { case_sensitive: false }, allow_blank: true
+  validates :username, uniqueness: { case_sensitive: false }
   validates :password, confirmation: true
 
   def authenticate(password)

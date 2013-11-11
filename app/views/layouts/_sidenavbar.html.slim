@@ -2,7 +2,7 @@
 #sidebar-wrapper
   ul.sidebar-nav
     li.sidebar-user-name
-      == link_to "#{current_user.first_name}", ideas_path
+      == link_to "#{current_user.name}", ideas_path
     - if current_user
       - @current_user_ideas.each do |current_user_idea|
         li.sidebar-idea-list

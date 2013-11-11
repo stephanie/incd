@@ -5,10 +5,8 @@ class RegistrationController < ApplicationController
     @user = User.new
   end
 
-  def 
-
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
 
     if @user.save
       if session[:user_id]
@@ -30,12 +28,13 @@ class RegistrationController < ApplicationController
     end
   end
   
-  private
+private
   
   def user_params
     params.require(:user).permit(
       :first_name,
       :last_name,
+      :username,
       :email,
       :password,
       :password_confirmation

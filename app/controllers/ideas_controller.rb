@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
 # GET ideas_url
   def index
     if current_user
-      @ideas = current_user.ideas 
+      @ideas = current_user.ideas
     end
   end
 
