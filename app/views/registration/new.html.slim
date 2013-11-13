@@ -1,18 +1,28 @@
-= form_for :user, url: register_url, html: { role: "form", id: "userform" } do |f|
-  legend Please sign up here
-  = f.text_field :first_name, placeholder: "First name"
-  = f.text_field :last_name, placeholder: "Last name"
-  = f.text_field :username, placeholder: "Username"
-  = f.text_field :email, placeholder: "youremail@address.com"
-  = f.password_field :password, id: "user_password", placeholder: "Password"
-  = f.password_field :password_confirmation, id: "user_password_confirmation", placeholder: "Retype password"
-  = f.submit "Sign Up"
-  button#show-password-button data-state="show" Show Passwords
-  #pw-meter.strength-meter.progress.progress-striped
-    #strength-meter.meter.progress-bar.w-0 role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"
-  #password-strength
-
-button Sign in as a guest
+.row
+  .col-md-3
+  .col-md-6
+    .medium-form-box
+      .form-field-header 
+        | PLEASE SIGN UP HERE
+      = form_for :user, url: register_url, html: { role: "form", id: "userform" } do |f|
+        legend
+        = f.text_field :first_name, placeholder: "First name", class: "medium-form-field"
+        = f.text_field :last_name, placeholder: "Last name", class: "medium-form-field"
+        = f.text_field :username, placeholder: "Username", class: "medium-form-field"
+        = f.text_field :email, placeholder: "youremail@address.com", class: "medium-form-field"
+        = f.password_field :password, id: "user_password", placeholder: "Password", class: "medium-form-field"
+        = f.password_field :password_confirmation, id: "user_password_confirmation", placeholder: "Retype password", class: "medium-form-field"
+        / #pw-meter.strength-meter.progress.progress-striped
+        / #strength-meter.meter.progress-bar.w-0 role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"
+        #password-dashboard
+          #password-strength-box
+            #password-strength-question How strong is your password?
+            #password-strength 
+              .password-strength-div
+          button#show-password-button data-state="show" Show Passwords
+        = f.submit "Sign Up", class: "medium-form-button", id: "signin-submit"
+        == link_to "Sign in as a guest", users_path, method: :post, class: "medium-form-button", id: "guest-signin-submit"
+  .col-md-3
 
 == render partial: 'layouts/password'
 
@@ -28,23 +38,23 @@ javascript:
       var color;
       switch (score) {
         case 0:
-          $('#password-strength').html("Very weak!").addClass('weak-password');
+          $('#password-strength').html("Very weak!").addClass("password-strength-div")
           break;
         case 1:
           color = 'danger';
-          $('#password-strength').html("Weak!").addClass('weak-password');
+          $('#password-strength').html("Weak!").addClass("password-strength-div")
           break;
         case 2:
           color = 'warning';
-          $('#password-strength').html("So-so").addClass('so-so-password');
+          $('#password-strength').html("So-so").addClass("password-strength-div")
           break;
         case 3:
           color = 'success';
-          $('#password-strength').html("Good").addClass('good-password');
+          $('#password-strength').html("Good").addClass("password-strength-div")
           break;
         case 4:
           color = 'success';
-          $('#password-strength').html("Excellent").addClass('excellent-password');
+          $('#password-strength').html("Excellent").addClass("password-strength-div")
           break;
         default:
           color = 'info';
@@ -70,6 +80,5 @@ javascript:
       try {
         setStrengthMeter(pw);
       } catch (e) {}
-      console.log('pw: ' + pw)
     });
   });

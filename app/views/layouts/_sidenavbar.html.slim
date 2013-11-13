@@ -1,17 +1,25 @@
 <!-- Sidebar -->
 #sidebar-wrapper
   ul.sidebar-nav
-    li.sidebar-user-name
-      == link_to "#{current_user.name}", ideas_path
-    - if current_user
-      - @current_user_ideas.each do |current_user_idea|
-        li.sidebar-idea-list
-          == link_to current_user_idea.name, current_user_idea
-    li
-      == link_to 'Add idea', new_idea_path
+    li.sidebar-username-section
+      .user-icon 
+        .username #{current_user.name}
+    li.idea-list 
+      == link_to 'All ideas', ideas_path, class: "all-ideas-link"
+    ul
+      - if current_user
+        - @current_user_ideas.each do |current_user_idea|
+          li.sidebar-idea-list
+            == link_to current_user_idea.name, current_user_idea
+    li.sidebar-add-idea
+      == link_to '+ Add idea', new_idea_path
+    .sidebar-bottom
+    <br>
+    <br>
+    <hr />
     - if current_user.guest?
-      li
-        == link_to 'Register', register_path
+      li.sidebar-register-link
+        == link_to '-- Register --', register_path
     - if current_user
       li.sidebar-signout-link
         == link_to "Sign out", signout_url, method: 'delete'

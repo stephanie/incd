@@ -1,11 +1,30 @@
 #homebackground 
-  div class="row-fluid"
-    div class="span4 offset4"
+  .row
+    .col-md-3
+    .col-md-3
+    .col-md-3
+    .col-md-3
+      .row
+        .col-md-12
+          .site-index-header-links
+            #site-index-username-statement 
+              - if current_user
+                | Hello 
+                == link_to current_user.name, ideas_path, class: "site-index-username"
+              - else
+                == link_to "REGISTER", register_path, id: "signinlink"
+            #site-index-divider |
+            - if current_user
+              == link_to "Sign out", signout_url, method: 'delete', id: "signoutlink"
+            - else
+              == link_to "Sign in", signin_url, id: "signinlink"
+  .row
+    .col-md-12
       #middle
         .name
           | inc'd
         .slogan#centeredslogan
           | incubate your ideas
         #bigbuttonbox
-          == link_to "Try it!", users_path, method: :post, class: "button mybutton bigbutton1", id: "tryitlink"
+          == link_to "Try it", users_path, method: :post, class: "button mybutton bigbutton1", id: "tryitlink"
           button.mybutton.bigbutton2: a href="/" id="learnmorelink" Learn more

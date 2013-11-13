@@ -18,10 +18,8 @@
 }
 html, body {
   height: 100%;
-  width: 100%;
+  width: 100%; 
   overflow: auto;
-  margin:0;
-  padding:0;
 }
 html {
   background: rgb(221,221,221);
@@ -44,7 +42,7 @@ html {
   float: left;
 }
 #middle{
-  margin-top: 179px;
+  margin-top: 230px;
 /*  border: 1px solid black;
 */
 }
@@ -94,7 +92,8 @@ html {
   margin-bottom: 0;
   border: 2px solid rgb(36,36,36);
   font-size: 1em;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
   font-weight: 300;
   line-height: 1.428571429;
   text-align: center;
@@ -153,22 +152,54 @@ html {
 }
 #tryitlink, #learnmorelink {
   text-decoration: none;
-  color: rgb(36,36,36);
-  font-size: 1.1em;
+  font-size: 20px;
   font-weight: 500;
+}
+
+#learnmorelink {
+  color: rgb(36,36,36);
+}
+#tryitlink {
 }
 .bigbutton1, .bigbutton2 {
   padding: 18px 23px;
   background: none;
-  border: 2px solid rgb(36,36,36);
+  margin-top: -10px;
 }
-
+.bigbutton2 {
+  border: 2px solid rgb(36,36,36);
+  color: rgb(36,36,36);
+}
+.small-form-button#signin-submit, 
+.medium-form-button#signin-submit {
+  border: 2px solid rgb(136,136,136);
+  background-color: rgb(136,136,136);
+  color: white;
+}
+.small-form-button#signin-submit:hover,
+.medium-form-button#signin-submit {
+  border: 2px solid rgb(136,136,136);
+  background-color: white;
+  color: rgb(136,136,136);
+}
+.bigbutton1, #guest-signin-submit {
+border: 2px solid rgb(255,193,18);
+background-color: rgb(255,193,18);
+color: rgb(36,36,36);
+}
 .bigbutton2 {
   margin-left: 22px;
 }
-.bigbutton1:hover, 
-.bigbutton2:hover {
-  background: rgba(0,0,0,0.25);
+.bigbutton2:hover,
+#signin-submit:hover {
+  background: rgba(0,0,0,0.15);
+}
+
+.bigbutton1:hover,
+#guest-signin-submit:hover {
+  background: none;
+  border: 2px solid rgb(255,193,18);
+  color: rgb(36,36,36);
 }
 
 .name, .slogan, span {
@@ -176,13 +207,11 @@ html {
   text-align: center;
 }
 .name {
-  font-size: 9em;
+  font-size: 170px;
+  line-height: 1em;
 }
 .slogan {
-  font-size: 1.98em;
-  margin-top: -20px;
-  margin-bottom: 40px;
-  margin-left: -41px;
+  font-size: 37px;
 }
 span {
   font-size: 0.16em;
@@ -288,14 +317,12 @@ span {
 #bigbuttonbox {
   text-align: center;
 }
-.category-box, .idea-description {
+.category-box, .notes-box {
   min-height: 60px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   margin: 0 -10px 12px 0;
   background-color: white;
-}
-.category-box {
   padding: 19px;
 }
 .problem {
@@ -314,21 +341,13 @@ span {
   background-color: rgba(234,177,13,0.55);
 }
 .idea-heading {
-  font-size: 30px;
+  font-size: 28px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   padding: 20px;
   margin-top: -10px;
   margin-bottom: -2px;
-}
-.idea-description {
-  margin-bottom: 21px;
-  margin-top: -1px;
-  font-family: 'Quattrocento Sans', sans-serif;
-  font-size: 16px;
-  line-height: 20px;
-  padding: 15px;
 }
 .category-heading, #popup-header {
   font-family: 'Raleway', sans-serif;
@@ -338,6 +357,14 @@ span {
   padding: 3px;
   margin: -10px;
   text-align: center;
+}
+#description-heading {
+  padding-left: 10px;
+  text-align: left;
+  margin-bottom: -20px;
+}
+#description-content {
+  margin-top: -6px
 }
 .category-existing-content {
   font-family: 'Quattrocento Sans', sans-serif;
@@ -361,10 +388,6 @@ textarea#category-content {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 16px;
-}
-.sidebar-idea-list {
-  text-transform: uppercase;
-  font-size: 18px;
 }
 .selected {
   background: rgb(221,221,221);
@@ -412,7 +435,7 @@ textarea#category-content {
     height: 100px;
     display: inline-block;
     margin: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     background: none;
     position: relative;
     padding-top: 34px;
@@ -422,7 +445,7 @@ textarea#category-content {
     list-style-type: none;
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
-    font-size: 26px;
+    font-size: 25px;
   }
   .ideas-index-link {
     color: rgb(36,36,36);
@@ -456,4 +479,218 @@ textarea#category-content {
   }
   .ideas-index-demand {
     left: 400px;
+  }
+  .user-icon {
+    background-image: url('user.png');
+    background-size: cover; 
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-top: 15px;
+    float: left;
+    margin-left: 15px;
+    position: relative;
+  }
+  li.sidebar-username-section {
+    position: relative;
+    height: 60px;
+    background: rgb(192,192,192);
+    width: 100%;
+  }
+  .username {
+    position: relative;
+    font-size: 20px;
+    left: 20px;
+    bottom: 5px;
+  }
+  li.sidebar-idea-list {
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 17px;
+    }
+  .idea-list, .sidebar-add-idea {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .all-ideas-link {
+    text-decoration: none;
+    color: rgb(36,36,36);
+  }
+  .site-index-header-links {
+    position: absolute;
+/*    border: 1px solid black;
+*/    top: 30px;
+    right: 55px;
+  }
+  #site-index-username-statement, #signoutlink, #signinlink, #site-index-divider {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    display: inline-block;
+    margin-left: 25px;
+  }
+  #signoutlink, #signinlink {
+    text-transform: uppercase;
+    color: rgb(36,36,36);
+    text-decoration: none;
+  }
+  .site-index-username {
+    text-decoration: underline;
+    color: rgb(36,36,36);
+  }
+  #signoutlink:hover,
+  #signinlink:hover {
+    color: rgba(0,0,0,0.4);
+  }
+  .site-index-username:hover {
+    color: gray;
+  }
+  .sidebar-bottom {
+  }
+  .sidebar-signout-link, .sidebar-register-link {
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: -10px;
+    display: inline-block;
+  }
+  .sidebar-signout-link {
+    text-align: right;
+    margin-right: 30px;
+  }
+  .sidebar-register-link {
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 20px;
+  }
+  #destroy-button {
+    background-image: url('delete-icon.png');
+    background-size: cover;
+    width: 26px;
+    height: 26px;
+    border: none;
+    background-color: rgb(221,221,221);
+    color: none;
+    right: 90px;
+  }
+  .share-icon {
+     background-size: cover; 
+     width: 25px;
+     height: 25px;
+     top: 25px;
+     background-image: url('share-icon.png');
+     right: 40px;
+   }
+  #destroy-button, .share-icon {
+    display: inline-block;
+    top: 25px;
+    position: absolute;
+   }
+  .small-form-box {
+    height: 500px;
+    margin-top: 130px;
+    max-width: 500px;
+  }
+
+  .small-form-box, .medium-form-box {
+    text-align: center;
+    border: 2px rgb(216,216,216) solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+    margin: 20px auto;
+    overflow: hidden;
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    height: 100%;
+    margin-top: 130px;
+    padding: 30px 55px;
+
+  }
+  .medium-form-box {
+    width: 780px;
+  }
+  .medium-form-field {
+    border: 1px rgb(166,166,166) solid;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 20px;
+    padding: 15px;
+    width: 300px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .small-form-field {
+    border: 1px rgb(166,166,166) solid;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+  }
+  .small-form-button, .medium-form-button {
+    border-radius: 3px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+    display: inline-block;
+    margin: 10px auto;
+    text-transform: uppercase;
+    padding: 14px;
+    font-size: 18px;
+  }
+  .small-form-button {
+    width: 100%;
+  }
+  .medium-form-button {
+    width: 300px;
+    margin-right: 20px;
+  }
+  #signin-submit {
+    margin-top: 40px;
+    background-color: white;
+  }
+  #guest-signin-submit {
+    text-decoration: none;
+    max-width: 400px;
+    margin: 10px auto;
+  }
+  .form-field-header {
+    font-size: 26px;
+    text-transform: uppercase;
+    padding: 10px;
+    color: rgb(86,86,86);
+  }
+  #password-dashboard {
+    margin-top: 20px;
+    margin-bottom: -10px;
+  }
+  #password-strength-box {
+    font-size: 14px;
+    display: inline-block;
+    white-space: nowrap;
+    width: 280px;
+  }
+  #password-strength-question{
+    text-align: left;
+    font-weight: 600;
+  }
+  #password-strength {
+    margin-top: -20px;
+  }
+  .password-strength-div {
+    margin-left: 200px;
+  }
+  #show-password-button {
+    margin-left: 145px;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    background-color: rgb(186,186,186);
+    color: white;
+    width: 165px;
+    border: none;
   }

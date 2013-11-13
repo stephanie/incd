@@ -7,7 +7,6 @@ class User
   has_many :ideas
 
   before_save :encrypt_password
-  before_save :downcase_email
 
   field :id, type: String
   field :first_name, type: String
@@ -73,10 +72,6 @@ class User
       self.salt = BCrypt::Engine.generate_salt
       self.fish = BCrypt::Engine.hash_secret(password, self.salt)
     end
-  end
-
-  def downcase_username
-    self.username.downcase!
   end
 
 end

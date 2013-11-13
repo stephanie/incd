@@ -1,9 +1,14 @@
-= form_for :user, url: signin_url, html: { role: "form", id: "loginform" } do |f|
-  legend Please sign in
-  = f.text_field :username, placeholder: "Username"
-  = f.password_field :password, class: "form-control showable-password", placeholder: "Password"
-  => f.submit "Sign in", id: 'submit-button'
-    button#show-password-button data-state="show" Show Password
+.row
+  .col-md-4
+  .col-md-4
+    .small-form-box
+      .form-field-header 
+        | PLEASE SIGN IN
+      = form_for :user, url: signin_url, html: { role: "form", id: "loginform" } do |f|
+        legend
+        = f.text_field :username, placeholder: "Username", class: "small-form-field"
+        = f.password_field :password, placeholder: "Password", class: "small-form-field"
+        => f.submit "Sign in", class: "small-form-button", id: "signin-submit"
 
-  button Sign in as a guest
-
+        == link_to "Sign in as a guest", users_path, method: :post, class: "small-form-button", id: "guest-signin-submit"
+    .col-md-4

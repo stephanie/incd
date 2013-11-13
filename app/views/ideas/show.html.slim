@@ -1,17 +1,21 @@
 #page-content-wrapper
   .content-header
     .idea-heading = @idea.name
+    .delete-icon 
+      == button_to 'Destroy', idea_path(@idea), method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy-button"
+    .share-icon
   div class="page-content inset"
     .row
       .col-md-12
-        .category-box(data-category-name="description")
-          .category-heading.description DESCRIPTION
-          .category-existing-content#problem-content = @description.content if @description
+        .notes-box(data-category-name="description")
+          .category-heading#description-heading NOTES
+          <hr>
+          .category-existing-content#description-content = @description.content if @description
     .row
       .col-md-6
         .category-box(data-category-name="problem")
           .category-heading.problem PROBLEM
-          .category-existing-content#problem-content = @problem.content if @problem
+          .category-existing-content = @problem.content if @problem
       .col-md-6
         .category-box(data-category-name="solution")
           .category-heading.solution SOLUTION
@@ -44,6 +48,26 @@ javascript:
         $modal_close = $modal.find('.close'),
         $modal_container = $('#modal-container');
 
+    $('.notes-box').click(function() {
+      $modal
+       .prepend($modal_close)
+       .css('top', $(window).scrollTop() + 40)
+       .show();
+      $modal_container.show();
+
+      $('#category-selected').attr('value', $(this).attr('data-category-name'));
+
+      $('#category-content').text($(this).children().eq(2).html());
+      $('#popup-header').html('NOTES');
+
+      $('#popup-header').attr('class', $(this).attr('data-category-name'));
+
+      $('textarea').focus();
+      tmpStr = $('textarea').text();
+      $('textarea').text('');
+      $('textarea').text(tmpStr);
+    });
+
     $('.category-box').click(function() {
       $modal
        .prepend($modal_close)
@@ -63,6 +87,7 @@ javascript:
       $('textarea').text('');
       $('textarea').text(tmpStr);
     });
+
 
      $('.close', '#modal').on('click', function(){
         $modal_container.hide();

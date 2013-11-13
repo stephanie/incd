@@ -1,0 +1,6 @@
+.row
+  .col-md-12
+    == form_for (@idea) do |f|
+      == f.text_field :name, class: 'idea-name-field small-form-field'
+      <br />
+      == f.submit "Add new idea", class: "small-form-button", id: "signin-submit"

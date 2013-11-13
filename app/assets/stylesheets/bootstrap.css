@@ -5567,7 +5567,7 @@ a.list-group-item:focus {
   font-family: 'Raleway', sans-serif;
   line-height: 1;
   color: #000000;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .close:hover,

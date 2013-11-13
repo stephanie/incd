@@ -5,6 +5,7 @@
         All ideas
       </div>
     </div>
+    <br>
     <% @ideas.each do |idea| %>
     <div class="ideas-index-box">
       <li><%= link_to idea.name, idea, class: "ideas-index-link" %></li>

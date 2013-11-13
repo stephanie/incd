@@ -1,11 +1,12 @@
 class SiteController < ApplicationController
   skip_before_action :is_authenticated?
-
+  before_action :current_user
+  
   def index
   end
 
   def new
-    redirect_to root_url if current_user
+    redirect_tocurrent_user root_url if current_user
   end
   
   def create

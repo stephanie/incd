@@ -93,7 +93,7 @@ class IdeasController < ApplicationController
     @idea = Idea.find_by(id: params[:id])
     @idea.destroy
 
-    redirect_to idea_path, notice: 'Idea is deleted.'
+    redirect_to ideas_path, notice: 'Idea is deleted.'
   end
 
 private
