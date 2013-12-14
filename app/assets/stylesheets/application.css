@@ -349,6 +349,41 @@ span {
   margin-top: -10px;
   margin-bottom: -2px;
 }
+.add-idea-box {
+  font-size: 21px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  top: 20px;
+  right: 25px;
+  position: absolute;
+  background-color: white;
+  width: 142px;
+  height: 42px;
+  padding-left: 45px;
+  border-radius: 20px;
+  color: rgb(96,96,96);
+}
+.add-idea-box:hover {
+  background-color: rgba(255,193,18, 0.8);
+  color: rgb(36,36,36);
+}
+#black-plus-icon {
+  background-image: url('black-plus-icon.png');
+}
+#plus-icon {
+  background-size: cover; 
+  width: 22px;
+  height: 22px;
+  top: 10px;
+  left: -31px;
+  background-image: url('plus-icon.png');
+  position: relative;
+ }
+ #add-idea-text {
+  top: -33px;
+  right: 1px;
+  position: relative;
+ }
 .category-heading, #popup-header {
   font-family: 'Raleway', sans-serif;
   text-transform: uppercase;
@@ -442,7 +477,6 @@ textarea#category-content {
     padding-left: 25px;
 /*    border: 2px dotted rgb(36,36,36);
 */    background: white;
-    list-style-type: none;
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
     font-size: 25px;
@@ -693,4 +727,7 @@ textarea#category-content {
     color: white;
     width: 165px;
     border: none;
+  }
+  .add-idea-link {
+    position: relative;
   }

@@ -4,11 +4,15 @@
       <div class="idea-heading">
         All ideas
       </div>
+      <div class="add-idea-box">
+        <div id="plus-icon"></div>
+        <div id="add-idea-text">add idea</div>
+      </div>
     </div>
     <br>
     <% @ideas.each do |idea| %>
     <div class="ideas-index-box">
-      <li><%= link_to idea.name, idea, class: "ideas-index-link" %></li>
+      <%= link_to idea.name, idea, class: "ideas-index-link" %>
       <div class="ideas-index-section ideas-index-problem">
       </div>
       <div class="ideas-index-section ideas-index-solution">
@@ -21,19 +25,26 @@
       </div>
     </div>
     <% end %>
+    </div>
   </div>
 
 <script>
 
-/* Get content information from database about each idea shown - NOT WORKING YET */
-  $.ajax({
-    type: 'GET',
-    url: "/ideas/<%= @idea_id %>",
-    done: function(data) {
-      console.log(idea.problem);
-      console.log(idea.solution);
-    },
-    dataType: 'json'
+  javascript:
+  $(function() {
+    
+
   });
+
+/* Get content information from database about each idea shown - NOT WORKING YET */
+  // $.ajax({
+  //   type: 'GET',
+  //   url: "/ideas/<%= @idea_id %>",
+  //   done: function(data) {
+  //     console.log(idea.problem);
+  //     console.log(idea.solution);
+  //   },
+  //   dataType: 'json'
+  // });
 
 </script>
