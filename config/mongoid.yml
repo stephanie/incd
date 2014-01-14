@@ -78,8 +78,9 @@ test:
 production:
   sessions:
     default:
-      database: <%= ENV['MONGOLAB_URI'] %>
       uri: <%= ENV['MONGOLAB_URI'] %>
       options:
-        safe: true
-        skip_version_check: true
+        consistency: :strong
+        max_retries: 30
+        retry_interval: 1
+        timeout: 30
