@@ -78,6 +78,7 @@ test:
 production:
   sessions:
     default:
+      database: <%= ENV['MONGOLAB_URI'] %>
       uri: <%= ENV['MONGOLAB_URI'] %>
       options:
         safe: true
