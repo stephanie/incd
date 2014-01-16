@@ -731,3 +731,19 @@ textarea#category-content {
   .add-idea-link {
     position: relative;
   }
+  .idea-name-field, .small-form-button {
+    font-family: 'Raleway', sans-serif;
+    width: 280px;
+    border-radius: 0px;
+    margin-left: 26px;
+    border: none;
+  }
+  .small-form-button {
+    max-width: 200px;
+    margin-left: 26px
+  }
+  #add-idea-input, #add-idea-submit {
+    position: relative;
+    display: inline-block;
+
+  }
