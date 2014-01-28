@@ -28,7 +28,7 @@ html {
   min-height: 100%;
   height: auto;
 /*  background-color: rgb(234,250,240);
-*/  background-image: url('graph_paper.jpg'); 
+*/  background-image: url('graph_paper_only.jpg'); 
   background-size: cover;
   margin: 0 auto -6.2em;
 }
@@ -309,7 +309,7 @@ span {
   margin-bottom: 40px;
 }
 #homebackground {
-  background-image: url('graph_paper.jpg'); 
+  background-image: url('graph_paper_only.jpg'); 
   background-size: cover;
   background: rgb (234,57,32);
   height: 100%
@@ -365,8 +365,8 @@ span {
 }
 .add-idea-box:hover {
   background-color: rgba(255,193,18, 0.8);
-  color: rgb(36,36,36);
-}
+/*  color: rgb(36,36,36);
+*/}
 #black-plus-icon {
   background-image: url('black-plus-icon.png');
 }
@@ -598,24 +598,25 @@ textarea#category-content {
   #destroy-button {
     background-image: url('delete-icon.png');
     background-size: cover;
-    width: 26px;
-    height: 26px;
+    width: 36px;
+    height: 36px;
     border: none;
     background-color: rgb(221,221,221);
     color: none;
-    right: 90px;
+    right: 40px;
   }
-  .share-icon {
+/*  .share-icon {
      background-size: cover; 
      width: 25px;
      height: 25px;
      top: 25px;
      background-image: url('share-icon.png');
      right: 40px;
-   }
-  #destroy-button, .share-icon {
+   }*/
+ /* .share-icon,*/
+  #destroy-button {
     display: inline-block;
-    top: 25px;
+    top: 20px;
     position: absolute;
    }
   .small-form-box {
@@ -684,13 +685,13 @@ textarea#category-content {
     margin-right: 20px;
   }
   #signin-submit {
-    margin-top: 40px;
     background-color: white;
+    margin: 10px auto;
   }
   #guest-signin-submit {
     text-decoration: none;
     max-width: 400px;
-    margin: 10px auto;
+    margin-top: 40px;
   }
   .form-field-header {
     font-size: 26px;
@@ -746,4 +747,7 @@ textarea#category-content {
     position: relative;
     display: inline-block;
 
+  }
+  form {
+    display: inline;
   }

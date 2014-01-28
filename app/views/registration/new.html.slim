@@ -20,8 +20,8 @@
             #password-strength 
               .password-strength-div
           button#show-password-button data-state="show" Show Passwords
-        = f.submit "Sign Up", class: "medium-form-button", id: "signin-submit"
         == link_to "Sign in as a guest", users_path, method: :post, class: "medium-form-button", id: "guest-signin-submit"
+        = f.submit "Sign Up", class: "medium-form-button", id: "signin-submit"
   .col-md-3
 
 == render partial: 'layouts/password'

@@ -1,9 +1,9 @@
 #page-content-wrapper
   .content-header
     .idea-heading = @idea.name
+    / .share-icon
     .delete-icon 
-      == button_to 'Destroy', idea_path(@idea), method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy-button"
-    .share-icon
+      == button_to '', idea_path(@idea), method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy-button"
   div class="page-content inset"
     .row
       .col-md-12
